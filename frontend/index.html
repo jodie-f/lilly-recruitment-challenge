@@ -27,7 +27,35 @@
             <tbody id="medicine-table-content">
                 <!-- to be added through js -->
             </tbody>
-        </table>
+        </table> 
+
+        <div class="create">
+            <label for="name">Medicine Name</label>
+            <input type="text" id="name">
+
+            <label for="price">Price £</label>
+            <input type="text" id="price">
+        </div>
+
+        <button id="add-medicine">Add Medicine</button>
+
+        <div class="update">
+            <label for="update-select">Select Medicine to Update: </label>
+            <select id="update-select">
+                <option value="" disabled selected>Medicines</option>
+            </select>
+            <label for="update-price">New Price: £</label>
+            <input type="text" id="update-price" placeholder="New price">
+            <button id="update-med">Update</button>
+        </div>
+
+        <div class="delete">
+            <label for="delete-select">Select Medicine to Delete</label>
+            <select id="delete-select">
+                <option value="" disabled selected>Medicines</option>
+            </select>
+            <button id="delete-med">Delete</button>
+        </div>
 
     </main>
     <script src="script.js"></script>

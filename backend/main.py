@@ -22,7 +22,7 @@ Run this module directly to start the FastAPI application.
 import uvicorn
 import json
 
-medicineFile = 'backend/data.json'
+medicineFile = 'data.json'
 
 app = FastAPI()
 
