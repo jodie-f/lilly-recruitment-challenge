@@ -195,7 +195,6 @@ function deleteMedicine() {
     .then(response => response.json())
     .then(data => {
         console.log(data.message); // success message
-        // alert(data.message); // success message to user
         fetchData();
         dropdownDelete();
         dropdownUpdate();
