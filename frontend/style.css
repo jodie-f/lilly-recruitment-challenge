@@ -30,11 +30,23 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+main {
+    display: flex;
+    width: 100%;
+    margin: 20px;
+}
+
+body > header {
+    margin: 20px;
+}
+
+/* LEFT SIDE */
+/* TABLE */
 table {
     border-collapse: collapse;
     /* border: 2px black; */
-    font-family: sans-serif;
-    font-size: 0.8rem;
+    /* font-family: sans-serif; */
+    font-size: 15px;
     letter-spacing: 1px;
 }
 
@@ -70,4 +82,85 @@ tfoot td {
 
 .missing-value {
     font-weight: bold;
+}
+
+/* CUSTOMISATION */
+.table {
+    /* width: 30%; */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* RIGHT SIDE */
+/* TABS */
+.menu {
+    flex: 0 0 250px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.tabs {
+    flex-direction: row;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    display: flex;
+}
+
+.tabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    width: 100px;
+    font-size: 15px;
+}
+
+.tabs button:hover {
+    background-color: #ddd;
+}
+
+.tabs button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    animation: fadeEffect 1s;
+    border-top: none;
+
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.tabcontent select, 
+.tabcontent input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.tabcontent > label {
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.tabcontent > button {
+    margin-top: 5px;
+    font-size: 15px;
+    padding: 2px;
+}
+
+#price,
+#update-price {
+    width: 100px;
 }

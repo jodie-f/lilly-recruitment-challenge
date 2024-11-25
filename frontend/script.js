@@ -1,5 +1,4 @@
 const apiURL = 'http://localhost:8000/medicines'
-// const apiURL = 'http://0.0.0.0:8000'
 
 // Fetching data from backend
 function fetchData(){
@@ -18,7 +17,7 @@ function fetchData(){
         })
 }
 
-const content = document.getElementById('medicine-table-content');
+const content = document.querySelector('#medicine-table-content');
 function displayData(medicines) {
     content.innerHTML = '';
 
@@ -51,9 +50,9 @@ function displayData(medicines) {
 }
 
 // Adding medicine
-const nameIn = document.getElementById('name');
-const priceIn = document.getElementById('price');
-const btnAdd = document.getElementById('add-medicine');
+const nameIn = document.querySelector('#name');
+const priceIn = document.querySelector('#price');
+const btnAdd = document.querySelector('#add-medicine');
 
 function addMedicine() {
     const name = nameIn.value.trim();
@@ -81,7 +80,6 @@ function addMedicine() {
     .then(response => response.json())
     .then(data => {
         console.log(data.message); // success message
-        // alert(data.message); // success message to user
         fetchData();
         dropdownUpdate();
         dropdownDelete();
@@ -98,9 +96,9 @@ function addMedicine() {
 btnAdd.addEventListener('click', addMedicine);
 
 // Update medicine
-const btnUpdate = document.getElementById('update-med');
-const updateSelect = document.getElementById('update-select');
-const updatePriceInput = document.getElementById('update-price');
+const btnUpdate = document.querySelector('#update-med');
+const updateSelect = document.querySelector('#update-select');
+const updatePriceInput = document.querySelector('#update-price');
 
 function dropdownUpdate() {
     fetch(apiURL)
@@ -146,7 +144,6 @@ function updateMedicine() {
     .then(response => response.json())
     .then(data => {
         console.log(data.message); // success message
-        // alert(data.message); // success message to user
         fetchData();
         dropdownUpdate();
         dropdownDelete();
@@ -161,8 +158,8 @@ function updateMedicine() {
 btnUpdate.addEventListener('click', updateMedicine);
 
 // Deleting medicine
-const btnDelete = document.getElementById('delete-med');
-const deleteSelect = document.getElementById('delete-select');
+const btnDelete = document.querySelector('#delete-med');
+const deleteSelect = document.querySelector('#delete-select');
 
 function dropdownDelete() {
     fetch(apiURL)
@@ -214,4 +211,24 @@ window.onload = () => {
     fetchData(); // Fetch and display data on load
     dropdownDelete(); // Sets dropdown menu
     dropdownUpdate();
+    document.querySelector("#defaultOpen").click(); // on load "add" tab shows
 }; 
+
+function openMenu(evt, tabName) {
+    var i, tabContent, tabBtn;
+
+    // hiding content
+    tabContent = document.querySelectorAll(".tabcontent");
+    for (let i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";        
+    }
+
+    // removing the "active" class from tab btns
+    tabBtn = document.querySelectorAll(".tab-btn");
+    for (let i = 0; i < tabBtn.length; i++) {
+        tabBtn[i].className = tabBtn[i].className.replace(" active", "");
+    }
+
+    document.querySelector(`#${tabName}`).style.display = "block";
+    evt.currentTarget.className += " active";
+}
